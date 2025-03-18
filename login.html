@@ -5,40 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Pagedo0</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
-<body>
+<body class="hide-sidebar login-page">
     <header>
         <h1>Login</h1>
     </header>
-    <div class="sidebar" id="sidebar">
-        <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button> <!-- Flecha para expandir/fechar -->
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">Sobre</a>
-            <a href="contact.html">Contato</a>
-            <a href="login.html">Login</a>
-        </nav>
-    </div>
     <div class="container">
-        <section id="login">
-            <h2>Login</h2>
-            <form action="#" method="POST">
-                <label for="login-email">E-mail:</label>
-                <input type="email" id="login-email" name="email" required>
-                
-                <label for="login-password">Senha:</label>
-                <input type="password" id="login-password" name="password" required>
-                
-                <button type="submit">Entrar</button>
-            </form>
-            <div style="margin-top: 20px; text-align: center;">
-                <button onclick="window.location.href='signup.html'">Criar Conta</button>
-            </div>
-        </section>
+        <form onsubmit="authenticate(event)">
+            <label for="login-email">E-mail:</label>
+            <input type="email" id="login-email" name="email" required>
+            
+            <label for="login-password">Senha:</label>
+            <input type="password" id="login-password" name="password" required>
+            
+            <button type="submit">Entrar</button>
+        </form>
     </div>
-    <footer>
-        <p>&copy; 2025 Pagedo0. Todos os direitos reservados.</p>
-    </footer>
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');

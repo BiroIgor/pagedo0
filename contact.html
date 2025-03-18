@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Pagedo0</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Sobre</a>
+            <a href="contact.html">Contato</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
+    <div class="content">
+        <header>
+            <h1>Contato</h1>
+        </header>
+        <div class="container">
+            <p>Entre em contato conosco pelo e-mail: <a href="mailto:exemplo@email.com">exemplo@email.com</a></p>
+        </div>
+    </div>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
+    <script>
+        // Verifica se o usuário está logado
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            // Redireciona para a página de login
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <script>
+        // Verifica se o usuário está logado
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            // Redireciona para a página de login
+            window.location.href = "login.html";
+        }
+    </script>
     <div class="sidebar" id="sidebar">
         <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button> <!-- Flecha para expandir/fechar -->
         <nav>

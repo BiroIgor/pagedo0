@@ -10,6 +10,15 @@
     <header>
         <h1>Login</h1>
     </header>
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button> <!-- Flecha para expandir/fechar -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">Sobre</a>
+            <a href="contact.html">Contato</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </div>
     <div class="container">
         <section id="login">
             <h2>Login</h2>
@@ -30,5 +39,11 @@
     <footer>
         <p>&copy; 2025 Pagedo0. Todos os direitos reservados.</p>
     </footer>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
 </body>
 </html>

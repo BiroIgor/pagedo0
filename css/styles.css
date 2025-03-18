@@ -6,7 +6,7 @@ body {
     background-size: cover; /* Faz a imagem cobrir toda a tela */
     background-position: center; /* Centraliza a imagem */
     background-repeat: no-repeat; /* Evita que a imagem se repita */
-    color: #dcdcdc; /* Light gray text */
+    color: #000000; /* Texto preto */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,7 +16,7 @@ body {
 
 header {
     background: #4b0082; /* Dark purple */
-    color: #ffffff;
+    color: #000000; /* Texto preto */
     padding: 10px 0;
     text-align: center;
     width: 100%;
@@ -31,7 +31,7 @@ nav {
 }
 
 nav a {
-    color: #ffffff;
+    color: #000000; /* Texto preto */
     text-decoration: none;
     padding: 10px 15px;
     background: #6a0dad; /* Medium purple */
@@ -81,7 +81,7 @@ form button:hover {
 
 footer {
     background: #4b0082; /* Dark purple */
-    color: #ffffff;
+    color: #000000; /* Texto preto */
     text-align: center;
     padding: 10px 0;
     position: relative;
@@ -94,24 +94,25 @@ footer {
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
+    width: 180px; /* Largura suficiente para exibir os nomes por completo */
     height: 100%;
     background-color: #4b0082; /* Dark purple */
-    color: #ffffff;
+    color: #000000; /* Texto preto */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
     transition: width 0.3s ease;
     overflow: hidden;
+    z-index: 1000; /* Garante que a barra lateral fique acima de outros elementos */
 }
 
 .sidebar.collapsed {
-    width: 50px; /* Reduz a largura quando colapsada */
+    width: 0; /* Fecha completamente a barra lateral */
 }
 
 .sidebar nav a {
-    color: #ffffff;
+    color: #000000; /* Texto preto */
     text-decoration: none;
     padding: 10px 15px;
     margin: 10px 0;
@@ -120,36 +121,44 @@ footer {
     background: #6a0dad; /* Medium purple */
     border-radius: 5px;
     transition: background 0.3s ease;
+    white-space: nowrap; /* Evita quebra de texto */
 }
 
 .sidebar nav a:hover {
     background: #9370db; /* Light purple */
 }
 
+/* Botão de alternância (toggle) */
 .toggle-btn {
-    position: absolute;
-    top: 10px;
-    right: -20px;
+    position: fixed; /* Fixa o botão na tela */
+    top: 20px;
+    left: 0; /* Sempre visível na borda esquerda */
     background-color: #6a0dad; /* Medium purple */
-    color: #ffffff;
+    color: #000000;
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, left 0.3s ease; /* Transição suave para a posição */
+    z-index: 1100; /* Garante que o botão fique acima de outros elementos */
 }
 
 .sidebar.collapsed .toggle-btn {
-    transform: rotate(180deg); /* Gira a seta quando colapsada */
+    left: 10px; /* Mantém o botão visível fora da barra lateral recolhida */
+    transform: rotate(180deg); /* Gira a seta quando a barra lateral está recolhida */
+}
+
+.sidebar .toggle-btn {
+    left: 160px; /* Posiciona o botão na borda direita da barra lateral expandida */
 }
 
 /* Estilo do conteúdo principal */
 .content {
-    margin-left: 200px; /* Espaço para a barra lateral */
+    margin-left: 180px; /* Espaço para a barra lateral expandida */
     padding: 20px;
     transition: margin-left 0.3s ease;
 }
 
 .sidebar.collapsed ~ .content {
-    margin-left: 50px; /* Ajusta o conteúdo quando a barra lateral está colapsada */
+    margin-left: 0; /* Remove o espaço quando a barra lateral está fechada */
 }

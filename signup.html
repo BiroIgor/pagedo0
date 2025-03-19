@@ -5,46 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - Pagedo0</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>Inscrição</h1>
-    </header>
+    <script>
+        // Verifica se o usuário está logado
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            // Redireciona para a página de login
+            window.location.href = "login.html";
+        }
+    </script>
     <div class="sidebar" id="sidebar">
-        <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button> <!-- Flecha para expandir/fechar -->
+        <button class="toggle-btn" onclick="toggleSidebar()">&#9664;</button>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">Sobre</a>
             <a href="contact.html">Contato</a>
-            <a href="login.html">Login</a>
+            <a href="#" onclick="logout()">Logout</a>
         </nav>
     </div>
-    <div class="container">
-        <section id="signup">
-            <h2>Criar Conta</h2>
-            <form action="#" method="POST">
-                <label for="signup-email">E-mail:</label>
-                <input type="email" id="signup-email" name="email" required>
-                
-                <label for="signup-password">Senha:</label>
-                <input type="password" id="signup-password" name="password" required>
-                
-                <label for="signup-confirm-password">Confirmar Senha:</label>
-                <input type="password" id="signup-confirm-password" name="confirm-password" required>
-                
-                <label for="signup-phone">Telefone:</label>
-                <input type="tel" id="signup-phone" name="phone" required>
-                
-                <button type="submit">Registrar</button>
-            </form>
-            <div style="margin-top: 20px; text-align: center;">
-                <button onclick="window.location.href='login.html'">Voltar para Login</button>
-            </div>
-        </section>
+    <div class="content">
+        <header>
+            <h1>Inscrição</h1>
+        </header>
+        <main class="container">
+            <section id="signup">
+                <h2>Criar Conta</h2>
+                <form action="#" method="POST">
+                    <label for="signup-email">E-mail:</label>
+                    <input type="email" id="signup-email" name="email" required>
+                    
+                    <label for="signup-password">Senha:</label>
+                    <input type="password" id="signup-password" name="password" required>
+                    
+                    <label for="signup-confirm-password">Confirmar Senha:</label>
+                    <input type="password" id="signup-confirm-password" name="confirm-password" required>
+                    
+                    <label for="signup-phone">Telefone:</label>
+                    <input type="tel" id="signup-phone" name="phone" required>
+                    
+                    <button type="submit">Registrar</button>
+                </form>
+                <div style="margin-top: 20px; text-align: center;">
+                    <button onclick="window.location.href='login.html'">Voltar para Login</button>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Pagedo0. Todos os direitos reservados.</p>
+        </footer>
     </div>
-    <footer>
-        <p>&copy; 2025 Pagedo0. Todos os direitos reservados.</p>
-    </footer>
+    <div id="toast" class="toast"></div>
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagedo0</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
     <script>
@@ -20,7 +21,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">Sobre</a>
             <a href="contact.html">Contato</a>
-            <a href="login.html">Login</a>
+            <a href="#" onclick="logout()">Sair</a>
         </nav>
     </div>
     <div class="content">
@@ -45,6 +46,8 @@
             <p>&copy; 2025 Pagedo0. Todos os direitos reservados.</p>
         </footer>
     </div>
+    <!-- Toast notification element -->
+    <div id="toast" class="toast"></div>
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
